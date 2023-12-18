@@ -1,5 +1,8 @@
+<head>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="fontawesome-free-6.5.0-web/scss/fontawesome.scss">
+</head>
 <div class="container-fluid">
-
     <table class="table table-striped table-inverse table-responsive w-100">
         <div>
             <a href="" class="btn bg-primary text-light">Créer</a>
@@ -14,24 +17,46 @@
                 <th class="w-25 text-center border bg-primary text-light fw-semibold">ACTION</th>
             </tr>
         </thead>
-        <tbody>
-           <?=$rows?>
+        <tbody id="tbody_collaborator">
+            <?= $rows ?>
         </tbody>
-        
+
     </table>
     <tfoot>
         <div class="bg-primary text-light">
 
-            <h3 class="text-center">Nombre de COLLABORATEURS: <?=$count?></h3>
+            <h3 class="text-center">Nombre de COLLABORATEURS: <?= $count ?></h3>
         </div>
-        </tfoot>
+    </tfoot>
 </div>
 <div class="container-fluid">
-    <div class="modal-container">
-        
+    <div class="#modal-container">
+        <h2 class="text-center">Saisir Collaborateur</h2>
+        <div class="modal-container-content">
+            <div class="row">
+                <div class="col">
+                    <label for="id">CODE</label>
+                </div>
+            </div>
+        </div>
     </div>
-
 </div>
 
 
-<script></script>
+<script>
+    function chercher() {
+        event.preventDefault();
+        let xhr = new XMLHttpRequest();
+        xhr.open('POST', 'collaborator.php?action=search');
+
+        let data = new FormData();
+        data.append('mot', mot.value); // Corrected typo here
+
+        xhr.send(data);
+
+        xhr.onload = () => {
+            let response = xhr.responseText; // Corrected variable name here
+            tbody_collaborator.innerHTML = response;
+        };
+    }
+</script>

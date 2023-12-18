@@ -16,3 +16,12 @@
     background-color: var(--blue);
     color: white;
 }
+
+/*! This is css for modal */
+.main-content{
+    position: relative;
+}
+#modal-container{
+    position: absolute;
+    top: 0;
+}
