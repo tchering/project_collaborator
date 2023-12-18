@@ -78,7 +78,7 @@ CREATE TABLE addresse(
 
 
 CREATE or REPLACE view list_view as
-select c.id as CODE, c.nom ,c.prenom , a.ville as Addresse,i.mobile
+select c.id as CODE, CONCAT(c.nom," " ,c.prenom) as "nom" , a.ville as Addresse,i.mobile
 from addresse a,client c,info_client i
 WHERE
 a.id_client = c.id and

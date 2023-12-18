@@ -1,0 +1,18 @@
+:root{
+    --orange:#F48139;
+    --green:#70AD47;
+    --blue:#4472C4;
+}
+
+.bg-orange{
+    background-color: var(--orange);
+    color: white;
+}
+.bg-green{
+    background-color: var(--green);
+    color: white;
+}
+.bg-blue{
+    background-color: var(--blue);
+    color: white;
+}
