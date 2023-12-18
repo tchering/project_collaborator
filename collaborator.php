@@ -3,7 +3,8 @@ include("service/myFnc.php");
 $template = "";
 $clients = listTable("list_view");
 foreach ($clients as $client) {
-    extract($client);
+    // extract($client);
+    
     $action = "
         <div class='button'>
             <a href='' class='btn'>Modifier</a>
@@ -13,6 +14,10 @@ foreach ($clients as $client) {
     ";
     $template .= "
         <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
             <td>$action</td>
         </tr>
     ";
