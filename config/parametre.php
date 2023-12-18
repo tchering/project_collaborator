@@ -1,5 +1,5 @@
 <?php
-const HOST = 'localhost';
-const DBNAME = 'collaborator';
-const USER = 'admin';
-const PASSWORD = 'Ilovedopeleaf1.';
+const host = 'localhost';
+const dbname = 'collaborator';
+const user = 'admin';
+const password = 'Ilovedopeleaf1.';

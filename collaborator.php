@@ -1,5 +1,5 @@
 <?php
-include("service/myFnc.php");
+include("service/function.php");
 $template = "";
 $clients = listTable("list_view");
 foreach ($clients as $client) {
@@ -23,9 +23,8 @@ foreach ($clients as $client) {
     ";
 }
 
-include("service/myFnc.php");
 $variables = [
     "rows" => $template,
 ];
 $file = "page/collaborator/collaborator.html.php";
-generate($file);
+generate($file,$variables);

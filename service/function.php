@@ -2,7 +2,7 @@
 <?php
 
 require_once("config/parametre.php");
-function connection($host = HOST, $dbname = DBNAME, $user = USER, $password = PASSWORD)
+function connection($host = host, $dbname = dbname, $user = user, $password = password)
 {
 
     $dns = "mysql:host=$host;dbname=$dbname;charset=utf8";
