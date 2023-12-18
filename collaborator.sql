@@ -71,3 +71,16 @@ CREATE TABLE addresse(
 	,CONSTRAINT addresse_client_FK FOREIGN KEY (id_client) REFERENCES client(id)
 )ENGINE=InnoDB;
 
+
+--! here i need to generate view
+-- code      Nom et prenom           addrese             mobile         
+-- client c        client c          addresse a         client_info     
+
+
+CREATE or REPLACE view list_view as
+select c.id as CODE, c.nom ,c.prenom , a.ville as Addresse,i.mobile
+from addresse a,client c,info_client i
+WHERE
+a.id_client = c.id and
+i.id_client = c.id
+GROUP BY c.nom;

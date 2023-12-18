@@ -26,3 +26,13 @@ function generate($file, $variables = [], $base = "page/basepage.html.php") {
         echo "Error generating baseContent";
     }
 }
+
+// create function to generate table
+function listTable($tableName){
+    $connection =connection();
+    $sql ="select * from $tableName";
+    $request=$connection->prepare($sql);
+    $request->execute();
+    $result=$request->fetchAll();
+    return $result;
+}
