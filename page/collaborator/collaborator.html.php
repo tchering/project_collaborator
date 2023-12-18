@@ -1,8 +1,17 @@
 <head>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="fontawesome-free-6.5.0-web/scss/fontawesome.scss">
+    <style>
+        @media (max-width: 576px) {
+
+            th,
+            td {
+                font-size: 10px;
+            }
+        }
+    </style>
 </head>
-<div class="container-fluid">
+<div class="container-fluid ">
     <table class="table table-striped table-inverse table-responsive w-100">
         <div>
             <a href="" class="btn bg-primary text-light">Créer</a>
@@ -10,7 +19,7 @@
         <h3 class="text-center">LISTE DE COLLABORATEURS</h3>
         <thead class="thead-inverse bg-dark">
             <tr class=" bg-primary border">
-                <th class="text-center border bg-primary text-light fw-semibold">CODE</th>
+                <th class=" text-center border bg-primary text-light fw-semibold">CODE</th>
                 <th class="text-center border bg-primary text-light fw-semibold">NOM ET PRENOM</th>
                 <th class="text-center border bg-primary text-light fw-semibold">ADRESSE</th>
                 <th class="text-center border bg-primary text-light fw-semibold">MOBILE</th>
@@ -30,14 +39,10 @@
     </tfoot>
 </div>
 <div class="container-fluid">
-    <div class="#modal-container">
+    <div class="#modal_container">
         <h2 class="text-center">Saisir Collaborateur</h2>
-        <div class="modal-container-content">
-            <div class="row">
-                <div class="col">
-                    <label for="id">CODE</label>
-                </div>
-            </div>
+        <div class="modal_container_content">
+
         </div>
     </div>
 </div>

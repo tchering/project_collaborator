@@ -27,7 +27,7 @@ switch ($action) {
         </div>
     ";
             $template .= "
-        <tr>
+        <tr class=''>
             <td class='border text-center'>$CODE</td>
             <td class='border text-center'>$nom</td>
             <td class='border text-center'>$Addresse</td>
@@ -55,11 +55,11 @@ switch ($action) {
     ";
             $template .= "
         <tr>
-            <td class='border text-center'>$CODE</td>
-            <td class='border text-center'>$nom</td>
-            <td class='border text-center'>$Addresse</td>
-            <td class='border text-center'>$mobile</td>
-            <td class='border text-center'>$action</td>
+            <td class='fs-sm-25 border text-center'>$CODE</td>
+            <td class='fs-sm-25 border text-center'>$nom</td>
+            <td class='fs-sm-25 border text-center'>$Addresse</td>
+            <td class='fs-sm-25 border text-center'>$mobile</td>
+            <td class='fs-sm-25 border text-center'>$action</td>
         </tr>
     ";
         }
