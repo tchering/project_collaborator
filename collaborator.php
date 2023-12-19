@@ -1,5 +1,19 @@
 
+<?php
+echo '<!DOCTYPE html>
+<html>
+<head>
+    <title>Collaborato</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="shortcut icon" href="image/collab.png" type="image/x-icon">
+</head>
+<body>';
 
+// Your PHP code here
+
+echo '</body>
+</html>';
+?>
 
 <?php
 include("service/function.php");
@@ -40,7 +54,7 @@ switch ($action) {
         // extract($_POST);
         $mot = $_POST['mot'];
         $connection = connection();
-        $sql = "select * from list_view where nom like ? or Addresse like ?";
+        $sql = "select * from collab where nom like ? or ville like ?";
         $request = $connection->prepare($sql);
         $request->execute(["%$mot%", "%$mot%"]);
         $collaborators = $request->fetchAll();
@@ -50,17 +64,17 @@ switch ($action) {
             extract($collaborator);
 
             $action = "
-        <div class='button d-grid d-md-grid d-lg-flex justify-content-center'>
+        <div class='d-grid d-md-grid d-lg-flex justify-content-center'>
             <a href='' class='btn bg-primary text-light mx-1'>Modifier</a>
-            <a href='' class='btn bg-success text-light mx-1'>Afficher</a>
+            <a href='' class='btn bg-success text-light mx-1 my-md-1 my-lg-0 '>Afficher</a>
             <a href='' class='btn bg-danger text-light mx-1'>Supprimer</a>
         </div>
     ";
             $template .= "
         <tr class=''>
-            <td class='border text-center'>$CODE</td>
+            <td class='border text-center'>$id</td>
             <td class='border text-center'>$nom</td>
-            <td class='border text-center'>$Addresse</td>
+            <td class='border text-center'>$ville</td>
             <td class='border text-center'>$mobile</td>
             <td class='border text-center'>$action</td>
         </tr>
@@ -78,7 +92,7 @@ switch ($action) {
             $action = "
         <div class='button d-grid d-md-grid d-lg-flex justify-content-center'>
             <a href='javascript:modifier($id)' class='btn bg-primary text-light mx-1'>Modifier</a>
-            <a href='javascript:afficher($id)' class='btn bg-success text-light mx-1'>Afficher</a>
+            <a href='javascript:afficher($id)' class='btn bg-success text-light mx-1 my-md-1 my-lg-0 '>Afficher</a>
             <a href='javascript:supprimer($id)' class='btn bg-danger text-light mx-1'>Supprimer</a>
         </div>
     ";
@@ -88,7 +102,7 @@ switch ($action) {
             <td class='fs-sm-25 border text-center'>$nom</td>
             <td class='fs-sm-25 border text-center'>$ville</td>
             <td class='fs-sm-25 border text-center'>$mobile</td>
-            <td class='fs-sm-25 border text-center'>$action</td>
+            <td class='fs-sm-25 border text-center' id='button'>$action</td>
         </tr>
     ";
         }

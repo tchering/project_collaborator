@@ -8,6 +8,7 @@
             td {
                 font-size: 10px;
             }
+
         }
 
         .error {
@@ -27,12 +28,12 @@
         </div>
 
         <thead class="thead-inverse bg-dark">
-            <tr class=" bg-primary border">
+            <tr class=" col bg-primary border">
                 <th class=" text-center border bg-primary text-light fw-semibold">CODE</th>
-                <th class="text-center border bg-primary text-light fw-semibold">NOM ET PRENOM</th>
-                <th class="text-center border bg-primary text-light fw-semibold">ADRESSE</th>
-                <th class="text-center border bg-primary text-light fw-semibold">MOBILE</th>
-                <th class="w-25 text-center border bg-primary text-light fw-semibold">ACTION</th>
+                <th class=" text-center border bg-primary text-light fw-semibold">NOM ET PRENOM</th>
+                <th class=" text-center border bg-primary text-light fw-semibold">ADRESSE</th>
+                <th class=" text-center border bg-primary text-light fw-semibold">MOBILE</th>
+                <th class=" w-25 text-center border bg-primary text-light fw-semibold">ACTION</th>
             </tr>
         </thead>
         <tbody id="tbody_collaborator">
@@ -49,13 +50,16 @@
 <div class="container-fluid">
     <div id="modal_art" class="">
         <div class="modal_art_content">
-            <h2 class="text-center form-title">Saisir Collaborateur</h2>
+
             <a href=""><i class="fa fa-close fa-2x text-light" id="btn_close"></i></a>
             <div class="row" id="modal_form">
-                <div class="col-12 col-md-12 col-lg-6" id="col-left">
+                <!--//! this is form column left -->
+                <div class="col-11 col-md-12 col-lg-6" id="col-left">
+
                     <!-- form input starts from here -->
-                    <div class="row d-block text-center d-md-flex justify-content-around">
-                        <div class="col-8 d-sm-block mt-2" id="civilite">
+                    <div class="row text-center d-flex flex-column flex-md-row d-md-flex  justify-content-md-around">
+                        <h2 class="text-center form-title">Saisir Collaborateur</h2>
+                        <div class="col-6 col-md-8 d-sm-block mt-2" id="civilite">
                             <!--//! ----------Civilite----------- -->
                             <label for="" class="col-12 col-md-3 col-lg-3 fw-bold text-dark">Civilite<span class="error fs-4">*</span></label>
                             <select class="col-8 input p-1" id="civilite" required>
@@ -75,12 +79,12 @@
                             <label for="prenom" class="col-12 col-md-3 fw-bold text-dark">Prénom<span class="error fs-4">*</span></label>
                             <input class="col-8 input" type="text" id="prenom" name="prenom">
                         </div>
-                        <!--//! -----------------Photo------------------ -->
-                        <div class="col-12 col-md-3" id="photo">
-                            <div class="photo ms-md-auto">
+                        <!--//! -----------------Photo COL------------------ -->
+                        <div class="col-6 col-md-3 " id="photo">
+                            <div class="photo ms-md-auto me-md-3 me-lg-0 ms-lg-5">
                                 <img src="image/homme1.jpg" alt="" class="" width="100" height="100">
                             </div>
-                            <div class="fichier"><a href="" class="btn btn-sm ms-4 mt-2  bg-light">
+                            <div class="fichier"><a href="" class="btn btn-sm ms-1 ms-md-5  mt-2  bg-light">
                                     Creer un fichier</a></div>
                         </div>
                         <!--//todo This is form second row -->
@@ -123,9 +127,9 @@
                         </div>
                     </div>
                 </div>
-                <!--//todo This is for addresse detail -->
+                <!--//!-----------This is form column right for address----------->
                 <div class="col-12 col-md-12 col-lg-6" id="col-right">
-                    <h6 class="fw-bold text-dark mt-md-3 mt-4">Adresse</h6>
+                    <h6 class="fw-bold text-dark mt-md-3 mt-4 text-center text-md-center">Adresse</h6>
                     <div class="adresse">
                         <!--//! -----------------rue------------------ -->
                         <div class="form-group">
@@ -180,10 +184,10 @@
                         </div>
                     </div>
                 </div>
-                <div class="row d-flex justify-content-between align-items-center">
-                    <a href="" class="col-md-3 col-sm-8  btn bg-green text-light">Annuler</a>
-                    <a href="" id="delete_Btn" class="col-md-3 col-sm-8  btn bg-danger text-light">Supprimer</a>
-                    <a href="javascript:Enregistrer()" id="save_Btn" class="col-md-3 col-sm-8  btn bg-blue text-light">Enregistrer</a>
+                <div class="row d-flex justify-content-center justify-content-md-around align-items-center" id="form_btn">
+                    <a href="" class="col-md-3 col-9  btn bg-green text-light">Annuler</a>
+                    <a href="" id="delete_Btn" class="col-md-3 col-9  btn bg-danger text-light">Supprimer</a>
+                    <a href="javascript:Enregistrer()" id="save_Btn" class="col-md-3  col-9  btn bg-blue text-light">Enregistrer</a>
                 </div>
             </div>
         </div>
