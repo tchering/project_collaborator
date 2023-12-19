@@ -9,6 +9,14 @@
                 font-size: 10px;
             }
         }
+
+        .error {
+            color: red;
+        }
+
+        .hide_id {
+            display: none;
+        }
     </style>
 </head>
 <div class="container-fluid ">
@@ -47,50 +55,55 @@
                 <div class="col-12 col-md-12 col-lg-6" id="col-left">
                     <!-- form input starts from here -->
                     <div class="row d-block text-center d-md-flex justify-content-around">
-                        <div class="col-8 mt-2" id="civilite">
+                        <div class="col-8 d-sm-block mt-2" id="civilite">
                             <!--//! ----------Civilite----------- -->
-                            <label for="" class="col-12 col-md-3 col-lg-3 fw-bold text-dark">Civilite</label>
-                            <select class="col-8 input p-1" id="civilite">
-                                <option selected id="civilite">Choisir votre civilite</option>
+                            <label for="" class="col-12 col-md-3 col-lg-3 fw-bold text-dark">Civilite<span class="error fs-4">*</span></label>
+                            <select class="col-8 input p-1" id="civilite" required>
+                                <option selected id="civilite">Choisir votre civilite<span class="error fs-4">*</span></option>
                                 <option value="monsieur">Monsieur</option>
                                 <option value="madame">Madame</option>
                             </select>
-                            <label for="nom" class="col-12 col-md-3 fw-bold text-dark my-1">ID</label>
-                            <input class="col-8 input" type="text" id="id" name="id">
+                            <div class="hide_id">
+
+                                <label for="nom" class="col-12 col-md-3 fw-bold text-dark my-1" disabled>ID</label>
+                                <input class="col-8 input" type="text" id="id" name="id">
+                            </div>
                             <!--//! -----------Nom-------------- -->
-                            <label for="nom" class="col-12 col-md-3 fw-bold text-dark my-1">Nom</label>
+                            <label for="nom" class="col-12 col-md-3 fw-bold text-dark my-1">Nom<span class="error fs-4">*</span></label>
                             <input class="col-8 input" type="text" id="nom" name="nom">
                             <!--//! -----------------Prenom--------------- -->
-                            <label for="prenom" class="col-12 col-md-3 fw-bold text-dark">Prénom</label>
+                            <label for="prenom" class="col-12 col-md-3 fw-bold text-dark">Prénom<span class="error fs-4">*</span></label>
                             <input class="col-8 input" type="text" id="prenom" name="prenom">
                         </div>
                         <!--//! -----------------Photo------------------ -->
                         <div class="col-12 col-md-3" id="photo">
-                            <div class="photo ms-md-auto"></div>
-                            <div class="fichier"><a href="" class="btn btn-sm  mt-2  bg-light">
+                            <div class="photo ms-md-auto">
+                                <img src="image/homme1.jpg" alt="" class="" width="100" height="100">
+                            </div>
+                            <div class="fichier"><a href="" class="btn btn-sm ms-4 mt-2  bg-light">
                                     Creer un fichier</a></div>
                         </div>
                         <!--//todo This is form second row -->
                         <div class="second_row mt-3">
                             <!--//! -----------------Datenaissange------------------ -->
                             <div class="form-group">
-                                <label for="" class="col-12 col-md-3 text-dark label">Date naissance</label>
+                                <label for="" class="col-12 col-md-3 text-dark label">Date naissance<span class="error fs-4">*</span></label>
                                 <input type="text" class="col-8 input" id="dateOfBirth" name="dateOfBirth" placeholder="dd/mm/yyyy">
                             </div>
                             <!--//! -----------------Lieu de naissance------------------ -->
                             <div class="form-group">
-                                <label for="" class="col-12 col-md-3 text-dark label">Lieu de naissance</label>
+                                <label for="" class="col-12 col-md-3 text-dark label">Lieu de naissance<span class="error fs-4">*</span></label>
                                 <input type="text" class="col-8 input" id="placeOfBirth" name="placeOfBirth">
                             </div>
                             <!--//! -----------------securitySocial------------------ -->
                             <div class="form-group">
-                                <label for="" class="col-12 col-md-3 text-dark label">N° Sécu</label>
-                                <input type="text" class="col-8 input" id="securitySocial" name="securitySocial">
+                                <label for="" class="col-12 col-md-3 text-dark label">N° Sécu<span class="error fs-4">*</span></label>
+                                <input type="text" class="col-8 input" id="socialSecurity" name="socialSecurity">
                             </div>
-                            <!--//! -----------------mailPro------------------ -->
+                            <!--//! -----------------emailPro------------------ -->
                             <div class="form-group">
                                 <label for="" class="col-12 col-md-3 text-dark label">Mail Pro</label>
-                                <input type="text" class="col-8 input" id="mailPro" name="mailPro">
+                                <input type="text" class="col-8 input" id="emailPro" name="eemailPro">
                             </div>
                             <!--//! -----------------mailPerso------------------ -->
                             <div class="form-group">
@@ -99,13 +112,13 @@
                             </div>
                             <!--//! -----------------mobile------------------ -->
                             <div class="form-group">
-                                <label for="" class="col-12 col-md-3 text-dark label">Mobile</label>
+                                <label for="" class="col-12 col-md-3 text-dark label">Mobile<span class="error fs-4">*</span></label>
                                 <input type="text" class="col-8 input" id="mobile" name="mobile">
                             </div>
-                            <!--//! -----------------phoneFix------------------ -->
+                            <!--//! -----------------fixe------------------ -->
                             <div class="form-group">
                                 <label for="" class="col-12 col-md-3 text-dark label">Téléphone fixe</label>
-                                <input type="text" class="col-8 input" id="phoneFix" name="phoneFix">
+                                <input type="text" class="col-8 input" id="fixe" name="fixe">
                             </div>
                         </div>
                     </div>
@@ -116,7 +129,7 @@
                     <div class="adresse">
                         <!--//! -----------------rue------------------ -->
                         <div class="form-group">
-                            <label for="" class="col-12 col-12 col-md-3 text-dark label">Rue</label>
+                            <label for="" class="col-12 col-12 col-md-3 text-dark label">Rue<span class="error fs-4">*</span></label>
                             <input type="text" class="col-12 col-md-8 input" id="rue" name="rue">
                         </div>
                         <!--//! -----------------complement------------------ -->
@@ -124,39 +137,39 @@
                             <label for="" class="col-12 col-md-3 text-dark label">Complément</label>
                             <input type="text" class="col-8 input" id="complement" name="complement">
                         </div>
-                        <!--//! -----------------codePostal------------------ -->
+                        <!--//! -----------------postalCode------------------ -->
                         <div class="form-group">
-                            <label for="" class="col-12 col-md-3 text-dark label">Code postal</label>
-                            <input type="text" class="col-8 input" id="codePostal" name="codePostal">
+                            <label for="" class="col-12 col-md-3 text-dark label">Code postal<span class="error fs-4">*</span></label>
+                            <input type="text" class="col-8 input" id="postalCode" name="postalCode">
                         </div>
                         <!--//! -----------------ville------------------ -->
                         <div class="form-group">
-                            <label for="" class="col-12 col-md-3 text-dark label">Ville</label>
+                            <label for="" class="col-12 col-md-3 text-dark label">Ville<span class="error fs-4">*</span></label>
                             <input type="text" class="col-8 input" id="ville" name="ville">
                         </div>
                         <!--//! -----------------department------------------ -->
                         <div class="form-group">
-                            <label for="" class="col-12 col-md-3 text-dark label">Département</label>
+                            <label for="" class="col-12 col-md-3 text-dark label">Département<span class="error fs-4">*</span></label>
                             <input type="text" class="col-8 input" id="department" name="department">
                         </div>
                         <!--//! -----------------region------------------ -->
                         <div class="form-group">
-                            <label for="" class="col-12 col-md-3 text-dark label">Région</label>
+                            <label for="" class="col-12 col-md-3 text-dark label">Région<span class="error fs-4">*</span></label>
                             <input type="text" class="col-8 input" id="region" name="region">
                         </div>
                         <!--//! -----------------pays------------------ -->
                         <div class="form-group">
-                            <label for="" class="col-12 col-md-3 text-dark label">Pays</label>
+                            <label for="" class="col-12 col-md-3 text-dark label">Pays<span class="error fs-4">*</span></label>
                             <input type="text" class="col-8 input" id="pays" name="pays">
                         </div>
                         <!--//! -----------------nationalite------------------ -->
                         <div class="form-group">
-                            <label for="" class="col-12 col-md-3 text-dark label">Nationalité</label>
+                            <label for="" class="col-12 col-md-3 text-dark label">Nationalité<span class="error fs-4">*</span></label>
                             <input type="text" class="col-8 input" id="nationalite" name="nationalite">
                         </div>
                         <!--//! -----------------typeCollab------------------ -->
                         <div class="form-group">
-                            <label for="" class="col-12 col-md-3 text-dark label">Type de collaborateur</label>
+                            <label for="" class="col-12 col-md-3 text-dark label">Type de collaborateur<span class="error fs-4">*</span></label>
                             <select class="col-8 input p-1" id="typeCollab">
                                 <option selected>Choisir votre type de collaborateur</option>
                                 <option value="CDI">CDI</option>
@@ -169,8 +182,8 @@
                 </div>
                 <div class="row d-flex justify-content-between align-items-center">
                     <a href="" class="col-md-3 col-sm-8  btn bg-green text-light">Annuler</a>
-                    <a href="" id="deleteBtn" class="col-md-3 col-sm-8  btn bg-danger text-light">Supprimet</a>
-                    <a href="javascript:Enregistrer()" id="saveBtn" class="col-md-3 col-sm-8  btn bg-blue text-light">Enregistrer</a>
+                    <a href="" id="delete_Btn" class="col-md-3 col-sm-8  btn bg-danger text-light">Supprimer</a>
+                    <a href="javascript:Enregistrer()" id="save_Btn" class="col-md-3 col-sm-8  btn bg-blue text-light">Enregistrer</a>
                 </div>
             </div>
         </div>
@@ -183,24 +196,44 @@
         afficher(collab_id, state = 1);
     }
 
+    function supprimer(collab_id) {
+        if (confirm("Voulez vous vraiment supprimer ce Donnée? !!!")) {
+            let xhr = new XMLHttpRequest();
+            xhr.open('POST', 'collaborator.php?action=delete');
+            let data = new FormData();
+            data.append('id', collab_id);
+            xhr.send(data);
+            xhr.onload = () => {
+                let response = xhr.responseText;
+                if (xhr.status === 200) {
+                    alert(response);
+                    location.reload();
+                } else {
+                    alert("Error");
+                }
+            };
+        }
+    }
+
+
     function Enregistrer() {
         let xhr = new XMLHttpRequest();
         xhr.open('POST', 'collaborator.php?action=save');
         let data = new FormData();
-        data.append('id',id.value);
+        data.append('id', id.value);
         data.append('civilite', civilite.value);
         data.append('nom', nom.value);
         data.append('prenom', prenom.value);
         data.append('dateOfBirth', dateOfBirth.value);
         data.append('placeOfBirth', placeOfBirth.value);
-        data.append('securitySocial', securitySocial.value);
-        data.append('mailPro', mailPro.value);
+        data.append('socialSecurity', socialSecurity.value);
+        data.append('emailPro', emailPro.value);
         data.append('mailPer', mailPer.value);
         data.append('mobile', mobile.value);
-        data.append('phoneFix', phoneFix.value);
+        data.append('fixe', fixe.value);
         data.append('rue', rue.value);
         data.append('complement', complement.value);
-        data.append('codePostal', codePostal.value);
+        data.append('postalCode', postalCode.value);
         data.append('ville', ville.value);
         data.append('department', department.value);
         data.append('region', region.value);
@@ -210,9 +243,12 @@
         xhr.send(data);
         xhr.onload = () => {
             let response = xhr.responseText;
-            // alert("success");
-            alert(response);
-        }
+            if (xhr.status === 200) {
+                alert(response);
+            } else {
+                alert("Error");
+            }
+        };
     }
 
 
@@ -241,19 +277,20 @@
         xhr.onload = () => {
             let response = xhr.responseText;
             response = JSON.parse(response);
+            id.value = response.id;
             civilite.value = response.civilite;
             nom.value = response.nom;
             prenom.value = response.prenom;
             dateOfBirth.value = response.dateOfBirth;
             placeOfBirth.value = response.placeOfBirth;
-            securitySocial.value = response.securitySocial;
-            mailPro.value = response.mailPro;
+            socialSecurity.value = response.socialSecurity;
+            emailPro.value = response.emailPro;
             mailPer.value = response.mailPer;
             mobile.value = response.mobile;
-            phoneFix.value = response.phoneFix;
+            fixe.value = response.fixe;
             rue.value = response.rue;
             complement.value = response.complement;
-            codePostal.value = response.codePostal;
+            postalCode.value = response.postalCode;
             ville.value = response.ville;
             department.value = response.department;
             region.value = response.region;
@@ -265,33 +302,35 @@
                 prenom.disabled = true;
                 dateOfBirth.disabled = true;
                 placeOfBirth.disabled = true;
-                securitySocial.disabled = true;
-                mailPro.disabled = true;
+                socialSecurity.disabled = true;
+                emailPro.disabled = true;
                 mailPer.disabled = true;
                 mobile.disabled = true;
-                phoneFix.disabled = true;
+                fixe.disabled = true;
                 rue.disabled = true;
                 complement.disabled = true;
-                codePostal.disabled = true;
+                postalCode.disabled = true;
                 ville.disabled = true;
                 department.disabled = true;
                 region.disabled = true;
                 pays.disabled = true;
                 nationalite.disabled = true;
                 typeCollab.disabled = true;
+                delete_Btn.disabled = true;
+                save_Btn.disabled = true;
             } else {
                 nom.disabled = false;
                 prenom.disabled = false;
                 dateOfBirth.disabled = false;
                 placeOfBirth.disabled = false;
                 securitySocial.disabled = false;
-                mailPro.disabled = false;
+                emailPro.disabled = false;
                 mailPer.disabled = false;
                 mobile.disabled = false;
-                phoneFix.disabled = false;
+                fixe.disabled = false;
                 rue.disabled = false;
                 complement.disabled = false;
-                codePostal.disabled = false;
+                postalCode.disabled = false;
                 ville.disabled = false;
                 department.disabled = false;
                 region.disabled = false;

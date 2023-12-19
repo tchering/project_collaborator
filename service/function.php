@@ -43,11 +43,21 @@ function listTable($tableName)
     return $result;
 }
 
-function listTableById($tableName,$id){
+function listTableById($tableName, $id)
+{
     $connection = connection();
-    $sql ="select * from $tableName where id=?";
-    $request =$connection->prepare($sql);
+    $sql = "select * from $tableName where id=?";
+    $request = $connection->prepare($sql);
     $request->execute([$id]);
     $result = $request->fetch();
     return $result;
+}
+
+function supprimer($tableName, $id)
+{
+    $connection = connection();
+    $sql = "DELETE FROM $tableName WHERE id=?";
+    $request = $connection->prepare($sql);
+    $request->execute([$id]);
+    return $request;
 }

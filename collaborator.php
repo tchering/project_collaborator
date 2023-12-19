@@ -6,45 +6,33 @@ include("service/function.php");
 $action = "";
 extract($_GET); // Add this line to extract $id variable
 switch ($action) {
+    case 'delete':
+        extract($_POST);
+        $success = supprimer('collab', $id);
+        if ($success) {
+            echo "La donnée a été supprimée avec succès";
+        } else {
+            echo "Erreur lors de la suppression de la donnée";
+        }
+        break;
     case 'save':
         extract($_POST);
         $connection = connection();
-        if ($id == 0) {
-            try {
-                $connection->beginTransaction();
-
-                // insert data in client
-                $sql = "INSERT INTO client(civilite, nom, prenom) VALUES (?, ?, ?)";
-                $result = $connection->prepare($sql);
-                $result->execute([$civilite, $nom, $prenom]);
-                $clientId = $connection->lastInsertId();
-
-                // insert data in info_client
-                $sql = "INSERT INTO info_client(dateOfBirth, placeOfBirth, securitySocial, mailPro, mailPer, mobile, phoneFix) VALUES (?, ?, ?, ?, ?, ?, ?)";
-                $result = $connection->prepare($sql);
-                $result->execute([$dateOfBirth, $placeOfBirth, $securitySocial, $mailPro, $mailPer, $mobile, $phoneFix]);
-                $infoClientId = $connection->lastInsertId();
-
-                // insert data in addresse
-                $sql = "INSERT INTO addresse(rue, complement, codePostal, ville, department, region, pays, nationalite, typeCollab) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
-                $result = $connection->prepare($sql);
-                $result->execute([$rue, $complement, $codePostal, $ville, $department, $region, $pays, $nationalite, $typeCollab]);
-                $addresseId = $connection->lastInsertId();
-
-                $connection->commit();
-
-                echo "Les nouvelles données ont été insérées avec succès";
-            } catch (PDOException $e) {
-                $connection->rollBack();
-                echo "Error: " . $e->getMessage();
-            }
+        if ($id == null) {
+            $sql = "INSERT INTO collab(civilite, nom, prenom, dateOfBirth, placeOfBirth, socialSecurity, emailPro, mailPer, mobile, fixe, rue, complement, postalCode, ville, department, region, pays, nationalite, typeCollab) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+            $request = $connection->prepare($sql);
+            $request->execute([$civilite, $nom, $prenom, $dateOfBirth, $placeOfBirth, $socialSecurity, $emailPro, $mailPer, $mobile, $fixe, $rue, $complement, $postalCode, $ville, $department, $region, $pays, $nationalite, $typeCollab]);
+            echo "Nouvelle donnée insérée avec succès";
         } else {
-            // Update operation code here
+            $sql = "UPDATE collab SET civilite = ?, nom = ?, prenom = ?, dateOfBirth = ?, placeOfBirth = ?, socialSecurity = ?, emailPro = ?, mailPer = ?, mobile = ?, fixe = ?, rue = ?, complement = ?, postalCode = ?, ville = ?, department = ?, region = ?, pays = ?, nationalite = ?, typeCollab = ? WHERE id = ?";
+            $request = $connection->prepare($sql);
+            $request->execute([$civilite, $nom, $prenom, $dateOfBirth, $placeOfBirth, $socialSecurity, $emailPro, $mailPer, $mobile, $fixe, $rue, $complement, $postalCode, $ville, $department, $region, $pays, $nationalite, $typeCollab, $id]);
+            echo "Donnée modifiée avec succès";
         }
         break;
     case 'show':
         extract($_POST);
-        $form_info = listTableById('form', $id);
+        $form_info = listTableById('collab', $id);
         $form_info_json = json_encode($form_info);
         echo $form_info_json;
         break;
@@ -83,22 +71,22 @@ switch ($action) {
         break;
     default:
         $template = "";
-        $collaborators = listTable("list_view");
+        $collaborators = listTable("collab");
         foreach ($collaborators as $collaborator) {
             extract($collaborator);
 
             $action = "
         <div class='button d-grid d-md-grid d-lg-flex justify-content-center'>
-            <a href='javascript:modifier($CODE)' class='btn bg-primary text-light mx-1'>Modifier</a>
-            <a href='javascript:afficher($CODE)' class='btn bg-success text-light mx-1'>Afficher</a>
-            <a href='javascript:supprimer($CODE)' class='btn bg-danger text-light mx-1'>Supprimer</a>
+            <a href='javascript:modifier($id)' class='btn bg-primary text-light mx-1'>Modifier</a>
+            <a href='javascript:afficher($id)' class='btn bg-success text-light mx-1'>Afficher</a>
+            <a href='javascript:supprimer($id)' class='btn bg-danger text-light mx-1'>Supprimer</a>
         </div>
     ";
             $template .= "
         <tr>
-            <td class='fs-sm-25 border text-center'>$CODE</td>
+            <td class='fs-sm-25 border text-center'>$id</td>
             <td class='fs-sm-25 border text-center'>$nom</td>
-            <td class='fs-sm-25 border text-center'>$Addresse</td>
+            <td class='fs-sm-25 border text-center'>$ville</td>
             <td class='fs-sm-25 border text-center'>$mobile</td>
             <td class='fs-sm-25 border text-center'>$action</td>
         </tr>
