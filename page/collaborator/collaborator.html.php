@@ -196,10 +196,10 @@
 
 
 <script>
-    function annuler(){
-           window.history.back();
-        }
-    
+    function annuler() {
+        window.history.back();
+    }
+
 
     function modifier(collab_id) {
         afficher(collab_id, state = 1);
@@ -254,6 +254,7 @@
             let response = xhr.responseText;
             if (xhr.status === 200) {
                 alert(response);
+                location.reload();
             } else {
                 alert("Error");
             }
