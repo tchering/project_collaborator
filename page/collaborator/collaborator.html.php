@@ -51,7 +51,7 @@
     <div id="modal_art" class="">
         <div class="modal_art_content">
 
-            <a href=""><i class="fa fa-close fa-2x text-light" id="btn_close"></i></a>
+            <a href="javascript:annuler()"><i class="fa fa-close fa-2x text-light" id="btn_close"></i></a>
             <div class="row" id="modal_form">
                 <!--//! this is form column left -->
                 <div class="col-11 col-md-12 col-lg-6" id="col-left">
@@ -185,8 +185,8 @@
                     </div>
                 </div>
                 <div class="row d-flex justify-content-center justify-content-md-around align-items-center" id="form_btn">
-                    <a href="" class="col-md-3 col-9  btn bg-green text-light">Annuler</a>
-                    <a href="" id="delete_Btn" class="col-md-3 col-9  btn bg-danger text-light">Supprimer</a>
+                    <a href="javascript:annuler()" class="col-md-3 col-9  btn bg-green text-light">Annuler</a>
+                    <a href="javascript:supprimer()" id="delete_Btn" class="col-md-3 col-9  btn bg-danger text-light">Supprimer</a>
                     <a href="javascript:Enregistrer()" id="save_Btn" class="col-md-3  col-9  btn bg-blue text-light">Enregistrer</a>
                 </div>
             </div>
@@ -196,6 +196,11 @@
 
 
 <script>
+    function annuler(){
+           window.history.back();
+        }
+    
+
     function modifier(collab_id) {
         afficher(collab_id, state = 1);
     }
