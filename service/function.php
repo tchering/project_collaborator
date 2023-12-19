@@ -1,6 +1,5 @@
 
 <?php
-
 require_once("config/parametre.php");
 function connection($host = host, $dbname = dbname, $user = user, $password = password)
 {
@@ -41,5 +40,14 @@ function listTable($tableName)
     $request = $connection->prepare($sql);
     $request->execute();
     $result = $request->fetchAll();
+    return $result;
+}
+
+function listTableById($tableName,$id){
+    $connection = connection();
+    $sql ="select * from $tableName where id=?";
+    $request =$connection->prepare($sql);
+    $request->execute([$id]);
+    $result = $request->fetch();
     return $result;
 }

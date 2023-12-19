@@ -1,55 +1,126 @@
-:root{
-    --orange:#F48139;
-    --green:#70AD47;
-    --blue:#4472C4;
+:root {
+  --orange: #f48139;
+  --green: #70ad47;
+  --blue: #4472c4;
 }
-
-.bg-orange{
-    background-color: var(--orange);
-    color: white;
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
-.bg-green{
-    background-color: var(--green);
-    color: white;
+.bg-orange {
+  background-color: var(--orange);
+  color: white;
 }
-.bg-blue{
-    background-color: var(--blue);
-    color: white;
+.bg-green {
+  background-color: var(--green);
+  color: white;
+}
+.bg-blue {
+  background-color: var(--blue);
+  color: white;
 }
 
 /*! This is css for modal */
-.main-content{
-    position: relative;
-}
-#modal-container{
-    position: absolute;
-    top: 0;
+.main-content {
+  position: relative;
 }
 
 @media (max-width: 576px) {
-    th, td {
-        font-size: 10px;
-    }
+  th,
+  td {
+    font-size: 10px;
+  }
 }
 
 /* This is css for form modal */
-#modal_container{
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.5);
+#modal_art {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(168, 195, 229);
+  visibility: hidden;
+  /* transform: scale(0); */
 }
-.modal_container_content{
-    width: 100%;
-    min-height: 50%;
-    background-color: rgb(240, 195, 195);
-    /* margin: 0 auto; */
-    margin-top: 5%;
-    padding: 20px;
-    border-radius: 10px;
+#modal_art:target {
+  visibility: visible;
+  /* transform: scale(1); */
+  transition: 0.5s all;
 }
 
-.photo-container{
-    height:100px;
-    width: 100px;
-    background-color: #F48139;
+.modal_container_content {
+  width: 100%;
+  min-height: 50%;
+  background-color: rgb(216, 200, 200);
+  /* margin: 0 auto; */
+  /* margin-top: 5%; */
+  margin: 10px;
+}
+#btn_close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  height: 50px;
+  width: 50px;
+  background-color: #4472c4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.form-title {
+  border: 2px solid black;
+  font-weight: bold;
+  color: black;
+  background-color: #4472c4;
+  position: relative;
+}
+#modal_form {
+  border: 3px solid skyblue;
+}
+#col-left {
+  min-height: 45vh;
+  background-color: whitesmoke;
+}
+#col-right {
+  border-left: 2px solid rgba(0, 0, 0, 0.288);
+  min-height: 45vh;
+  background-color: whitesmoke;
+}
+
+.photo {
+  margin-top: 5px;
+  border: 2px solid black;
+  height: 100px;
+  width: 100px;
+  background-color: white;
+}
+.btn-sm {
+  width: 100px;
+  text-align: center;
+  font-size: 10px;
+  border: 1px solid black;
+}
+.second_row {
+  gap: 5px;
+}
+.input,
+.label {
+  margin-top: 4px;
+  font-weight: bold;
+  font-size: 14px;
+}
+.input {
+  border-radius: 5px;
+  width: 70%;
+}
+/* This is css for addresse */
+.adresse {
+  margin-top: 5rem;
 }

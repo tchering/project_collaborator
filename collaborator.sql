@@ -127,3 +127,17 @@ WHERE
 a.id_client = c.id and
 i.id_client = c.id
 GROUP BY c.nom;
+
+
+-- create final view to fill the form
+CREATE or replace VIEW form2 as
+select c.id ,c.civilite,c.nom,c.prenom,i.`dateOfBirth`,i.`placeOfBirth`,i.`securitySocial`,i.`mailPro`,i.`mailPer`,i.mobile,i.`phoneFix`,a.rue,a.complement,a.`codePostal`,a.ville,a.department,a.region,a.pays,a.nationalite,a.`typeCollab`
+from client c ,info_client i,addresse a ,list_view l
+where i.id_client = c.id and
+a.id_client = c.id 
+GROUP BY c.nom;
+
+create table collab(
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    
+);
