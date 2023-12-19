@@ -1,21 +1,5 @@
 
 <?php
-echo '<!DOCTYPE html>
-<html>
-<head>
-    <title>Collaborato</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="shortcut icon" href="image/collab.png" type="image/x-icon">
-</head>
-<body>';
-
-// Your PHP code here
-
-echo '</body>
-</html>';
-?>
-
-<?php
 include("service/function.php");
 $action = "";
 extract($_GET); // Add this line to extract $id variable
@@ -105,6 +89,17 @@ switch ($action) {
             <td class='fs-sm-25 border text-center' id='button'>$action</td>
         </tr>
     ";
+            echo '<!DOCTYPE html>
+<html>
+<head>
+    <title>Collaborator</title>
+    <link rel="shortcut icon" href="image/collab.png" type="image/x-icon">
+
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body>';
+            echo '</body>
+</html>';
         }
 
         $variables = [
@@ -113,6 +108,7 @@ switch ($action) {
         ];
         $file = "page/collaborator/collaborator.html.php";
         generate($file, $variables);
+
 
         break;
 }
