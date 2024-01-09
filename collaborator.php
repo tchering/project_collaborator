@@ -1,6 +1,7 @@
 
 <?php
-include("service/function.php");
+    
+    include("service/function.php");
 $action = "";
 extract($_GET); // Add this line to extract $id variable
 switch ($action) {

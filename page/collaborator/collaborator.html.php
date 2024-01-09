@@ -62,7 +62,7 @@
                         <div class="col-6 col-md-8 d-sm-block mt-2" id="civilite">
                             <!--//! ----------Civilite----------- -->
                             <label for="" class="col-12 col-md-3 col-lg-3 fw-bold text-dark">Civilite<span class="error fs-4">*</span></label>
-                            <select class="col-8 input p-1" id="civilite" required>
+                            <select class=" col-8 input p-1" id="civilite" name="civilite" required>
                                 <option selected id="civilite">Choisir votre civilite<span class="error fs-4">*</span></option>
                                 <option value="monsieur">Monsieur</option>
                                 <option value="madame">Madame</option>
@@ -84,8 +84,9 @@
                             <div class="photo ms-md-auto me-md-3 me-lg-0 ms-lg-5">
                                 <img src="image/homme1.jpg" alt="" class="" width="100" height="100">
                             </div>
-                            <div class="fichier"><a href="" class="btn btn-sm ms-1 ms-md-5  mt-2  bg-light">
-                                    Creer un fichier</a></div>
+                            <!-- <div class="fichier"><a href="" class="btn btn-sm ms-1 ms-md-5  mt-2  bg-light">
+                                    Creer un fichier</a></div> -->
+                            <input type="file" class="ms-1 ms-md-5  mt-2  bg-light text-tansparent" >
                         </div>
                         <!--//todo This is form second row -->
                         <div class="second_row mt-3">
@@ -261,7 +262,7 @@
         };
     }
     // Comment
-//create second comment test
+    //create second comment test
 
     function chercher() {
         event.preventDefault();

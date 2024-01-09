@@ -17,7 +17,7 @@
 
 <body>
     <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid bg-dark">
+        <div class="container-fluid bg-primary  shadow-lg"">
             <a class="navbar-brand" href="#">
                 <h3><i class="fa fa-laptop text-light"></i></h3>
             </a>
